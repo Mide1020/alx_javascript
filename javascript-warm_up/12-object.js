@@ -5,5 +5,5 @@ const lines = [
 ];
 
 for (let i = 0; i < lines.length; i++) {
-  console.log(lines[i].replace("12", "89"));
+  console.log(lines[i]);
 }
