@@ -1,12 +1,8 @@
-// Define the add function
+// Define the add function in the global scope
 function add(x, y) {
     return x + y;
   }
   
-  // Export the function if needed (e.g., for use in another module)
-  // module.exports = add; // For Node.js/CommonJS
-  // export default add; // For ES6 Modules
-  
   // Example usage:
-  const result = add(5, 7);
-  console.log(result); // This will print 12 to the console  
+  console.log(add(93, -4)); // This should print 89 to the console
+  console.log(add(0, 89));  // This should print 89 to the console  
