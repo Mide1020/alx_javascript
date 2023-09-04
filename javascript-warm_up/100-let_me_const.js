@@ -1,4 +1,7 @@
-let myVar = 333;
+let myVar = 40; // Initial value of myVar
 
-// You can print the modified value to verify it
-console.log(myVar);
+console.log(myVar); // Print the initial value
+
+myVar = 333; // Modify the value of myVar
+
+console.log(myVar); // Print the modified value
