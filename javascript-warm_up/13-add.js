@@ -1,4 +1,3 @@
-// Define the add function in the global scope
 function add(x, y) {
     return x + y;
   }
