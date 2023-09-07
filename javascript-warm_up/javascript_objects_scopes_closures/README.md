@@ -1,1 +1,0 @@
-Javascript object scope readme file courtsey ALX

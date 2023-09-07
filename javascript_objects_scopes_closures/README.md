@@ -1,0 +1,1 @@
+README.md file of javascript object scopes closure courtsey ALX
