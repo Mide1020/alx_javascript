@@ -1,5 +1,3 @@
-/ 6-square.js
-
 const SquareParent = require('./5-square');
 
 class Square extends SquareParent {
