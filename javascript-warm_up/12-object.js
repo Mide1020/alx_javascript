@@ -1,10 +1,12 @@
-const lines = [
-  "C is fun",
-  "Python is cool",
-  "JavaScript is amazing"
-];
+#!/usr/bin/node
+const myObject = {
+  type:'object',
+  value:12
+};
+console.log(myObject);
 
-for (let i = 0; i < lines.length; i++) {
-  const updatedLine = lines[i].replace("cool", "89");
-  console.log(updatedLine);
-}
+//Update the value property to 89
+
+myObject.value = 89;
+
+console.log(myObject);
