@@ -1,5 +1,3 @@
-4-rectangle.js
-
 class Rectangle {
 
     constructor(w, h) {
