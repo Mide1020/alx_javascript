@@ -46,7 +46,7 @@ request.get(movieUrl, (error, response, movieBody) => {
 
     // Fetch and print character names
 
-    Promise.all(http://characterUrls.map(fetchCharacterName))
+    Promise.all(characterUrls.map(fetchCharacterName))
 
       .then(characterNames => {
 
@@ -104,7 +104,7 @@ function fetchCharacterName(characterUrl) {
 
         const characterData = JSON.parse(characterBody);
 
-        resolve(Task 5characterData.name);
+        resolve(characterData.name);
 
       } catch (parseError) {
 
