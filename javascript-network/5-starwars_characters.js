@@ -104,7 +104,7 @@ function fetchCharacterName(characterUrl) {
 
         const characterData = JSON.parse(characterBody);
 
-        resolve(http://characterData.name);
+        resolve(characterData.name);
 
       } catch (parseError) {
 
