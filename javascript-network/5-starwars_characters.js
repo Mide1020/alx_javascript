@@ -104,7 +104,7 @@ function fetchCharacterName(characterUrl) {
 
         const characterData = JSON.parse(characterBody);
 
-        resolve(characterData.name);
+        resolve(Task 5characterData.name);
 
       } catch (parseError) {
 
