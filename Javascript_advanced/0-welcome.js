@@ -1,4 +1,4 @@
-lastName) {
+function wwelcome(firstName, lastname){
 
     const fullName = firstName + ' ' + lastName;
 
