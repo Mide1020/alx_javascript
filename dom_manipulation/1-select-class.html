@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Example</title>
+</head>
+<body>
+    <h1 id="mainHeading">Hello, DOM!</h1>
+    <p>This is a demonstration of the DOM.</p>
+    <button id="changeTextButton">Change Text</button>
+
+    <script>
+        // JavaScript code to access and modify an HTML element
+
+        // Access the <h1> element with id "mainHeading"
+        const mainHeading = document.getElementById('mainHeading');
+
+        // Access the <button> element with id "changeTextButton"
+        const changeTextButton = document.getElementById('changeTextButton');
+
+        // Add a click event listener to the button
+        changeTextButton.addEventListener('click', () => {
+            // Modify the text content of the <h1> element
+            mainHeading.textContent = 'DOM Example Changed!';
+        });
+    </script>
+</body>
+</html>

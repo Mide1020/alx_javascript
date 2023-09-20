@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector Example</title>
+</head>
+<body>
+    <h1>Selector Example</h1>
+    <ul>
+        <li class="list-item">Item 1</li>
+        <li class="list-item">Item 2</li>
+        <li class="list-item">Item 3</li>
+        <li class="list-item">Item 4</li>
+    </ul>
+    <p id="demo">This is a demonstration of selectors.</p>
+
+    <script>
+        // JavaScript code to use selectors to select HTML elements
+
+        // Select all elements with the class "list-item"
+        const listItems = document.querySelectorAll('.list-item');
+
+        // Loop through the selected elements and modify them
+        listItems.forEach(item => {
+            item.style.fontWeight = 'bold';
+            item.style.color = 'blue';
+        });
+
+        // Select the element with id "demo"
+        const demoParagraph = document.getElementById('demo');
+
+        // Modify the text content of the selected element
+        demoParagraph.textContent = 'Selectors in action!';
+    </script>
+</body>
+</html>

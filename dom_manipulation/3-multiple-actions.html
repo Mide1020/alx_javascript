@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Example</title>
+</head>
+<body>
+    <h1>DOM Manipulation Example</h1>
+    <div id="container">
+        <p>This is a demonstration of DOM manipulation.</p>
+    </div>
+    <button id="addButton">Add Element</button>
+    <button id="removeButton">Remove Element</button>
+
+    <script>
+        // JavaScript code for DOM manipulation
+
+        // Select the container div
+        const container = document.getElementById('container');
+
+        // Select the "Add Element" button
+        const addButton = document.getElementById('addButton');
+
+        // Select the "Remove Element" button
+        const removeButton = document.getElementById('removeButton');
+
+        // Function to add a new paragraph element to the container
+        function addElement() {
+            const newParagraph = document.createElement('p');
+            newParagraph.textContent = 'New Paragraph Added!';
+            container.appendChild(newParagraph);
+        }
+
+        // Function to remove the last paragraph element from the container
+        function removeElement() {
+            const paragraphs = container.getElementsByTagName('p');
+            if (paragraphs.length > 0) {
+                const lastParagraph = paragraphs[paragraphs.length - 1];
+                container.removeChild(lastParagraph);
+            }
+        }
+
+        // Add click event listeners to the buttons
+        addButton.addEventListener('click', addElement);
+        removeButton.addEventListener('click', removeElement);
+    </script>
+</body>
+</html>
