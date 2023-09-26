@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Example</title>
+</head>
+<body>
+    <h1>Cookies Example</h1>
+    
+    <!-- Text inputs for firstname and email with IDs -->
+    <input type="text" id="firstname" placeholder="First Name">
+    <input type="text" id="email" placeholder="Email">
+    
+    <!-- Button to set cookies -->
+    <button onclick="setCookies()">Log me in</button>
+    
+    <!-- Button to show cookies -->
+    <button onclick="showCookies()">Show the cookies</button>
+    
+    <!-- Paragraph to display cookies -->
+    <p id="cookieInfo"></p>
+
+    <script>
+        // Function to set cookies with a 10-day expiration
+        function setCookies() {
+            const firstnameInput = document.getElementById("firstname").value;
+            const emailInput = document.getElementById("email").value;
+            
+            // Calculate the expiration date (10 days from now)
+            const expirationDate = new Date();
+            expirationDate.setDate(expirationDate.getDate() + 10);
+
+            // Set cookies with the 'expires' attribute
+            document.cookie = `firstname=${firstnameInput}; expires=${expirationDate.toUTCString()}`;
+            document.cookie = `email=${emailInput}; expires=${expirationDate.toUTCString()}`;
+        }
+
+        // Function to show cookies
+        function showCookies() {
+            const cookies = document.cookie.split(';');
+            const cookieInfo = document.getElementById("cookieInfo");
+
+            let cookieText = "Cookies:<br>";
+
+            cookies.forEach(cookie => {
+                const [name, value] = cookie.trim().split('=');
+                cookieText += `${name}: ${value}<br>`;
+            });
+
+            cookieInfo.innerHTML = cookieText;
+        }
+    </script>
+</body>
+</html>

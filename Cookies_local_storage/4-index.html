@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form Example</title>
+    <style>
+        .login-form {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Our Website</h1>
+
+    <!-- Login form container -->
+    <div class="login-form">
+        <h2>Login</h2>
+        <input type="text" id="login-username" placeholder="Username">
+        <input type="password" id="login-password" placeholder="Password">
+        <button onclick="login()">Log In</button>
+    </div>
+
+    <p id="welcome-message"></p>
+
+    <script>
+        // Function to show the login form and hide the welcome message
+        function showForm() {
+            const loginForm = document.querySelector('.login-form');
+            const welcomeMessage = document.getElementById('welcome-message');
+            if (welcomeMessage) {
+                welcomeMessage.style.display = 'none';
+            }
+            loginForm.style.display = 'block';
+        }
+
+        // Function to hide the login form
+        function hideForm() {
+            const loginForm = document.querySelector('.login-form');
+            loginForm.style.display = 'none';
+        }
+
+        // Function to delete cookies and show the login form
+        function deleteCookiesAndShowForm() {
+            // Delete cookies (remove the code to delete cookies as per your cookie implementation)
+            document.cookie = "firstname=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+            // Show the login form
+            showForm();
+        }
+
+        // Function to check if the user is logged in
+        function isLoggedIn() {
+            const firstnameCookie = getCookie("firstname");
+            return !!firstnameCookie; // Returns true if firstnameCookie is not empty
+        }
+
+        // Function to show the welcome message or login form
+        function showWelcomeMessageOrForm() {
+            const welcomeMessage = document.getElementById('welcome-message');
+            if (isLoggedIn()) {
+                // User is logged in
+                const firstname = getCookie("firstname");
+                welcomeMessage.innerHTML = `Welcome ${firstname} <a href="#" onclick="deleteCookiesAndShowForm()"> (logout)</a>`;
+                welcomeMessage.style.fontStyle = 'italic';
+                welcomeMessage.style.fontWeight = 'normal';
+                welcomeMessage.style.marginLeft = '10px';
+            } else {
+                // User is not logged in, show the login form
+                showForm();
+            }
+        }
+
+        // Function to get a cookie by name
+        function getCookie(name) {
+            const cookies = document.cookie.split(';');
+            for (const cookie of cookies) {
+                const [cookieName, cookieValue] = cookie.trim().split('=');
+                if (cookieName === name) {
+                    return cookieValue;
+                }
+            }
+            return "";
+        }
+
+        // Function to handle login (replace this with your actual login logic)
+        function login() {
+            // Implement your login logic here
+            // For example, check username and password, set cookies if successful
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            // For simplicity, we're assuming a successful login here
+            document.cookie = `firstname=${username}`;
+            // After successful login, show the welcome message
+            showWelcomeMessageOrForm();
+        }
+
+        // Initial call to determine whether to show the welcome message or login form
+        showWelcomeMessageOrForm();
+    </script>
+</body>
+</html>
