@@ -1,57 +1,32 @@
+#!/usr/bin/node
 const request = require('request');
-
 const fs = require('fs');
 
-// Check if both URL and file path arguments are provided
+const url = process.argv[2]; // Get the URL from the command line argument
+const filePath = process.argv[3]; // Get the file path from the command line argument
 
-if (process.argv.length < 4) {
-
-  console.error('Usage: node 3-request_store.js <URL> <file path>');
-
+if (!url || !filePath) {
+  console.error('Please provide both the URL and file path as arguments.');
   process.exit(1);
-
 }
 
-// Get the URL and file path from the command line arguments
-
-const url = process.argv[2];
-
-const filePath = process.argv[3];
-
 // Send a GET request to the specified URL
-
 request.get(url, (error, response, body) => {
-
   if (error) {
-
-    console.error(`Error: ${error.message}`);
-
+    console.error('Error:', error);
     process.exit(1);
-
   }
 
   if (response.statusCode !== 200) {
-
-    console.error(`Error: Failed to fetch data. Status code: ${response.statusCode}`);
-
+    console.error('Request failed with status code:', response.statusCode);
     process.exit(1);
-
   }
 
-  // Write the response body to the specified file path with UTF-8 encoding
-
-  fs.writeFile(filePath, body, 'utf-8', (writeError) => {
-
-    if (writeError) {
-
-      console.error(`Error writing to file: ${writeError.message}`);
-
+  // Write the response body to the specified file (UTF-8 encoded)
+  fs.writeFile(filePath, body, 'utf-8', (err) => {
+    if (err) {
+      console.error('Error writing to file:', err);
       process.exit(1);
-
     }
-
-    console.log(`Data saved to ${filePath}`);
-
   });
-
 });
